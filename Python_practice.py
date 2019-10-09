@@ -26,6 +26,25 @@ print("Hello World/n")
 #else:
 #    print('Your grade is an F.')
 
+import datetime
+
+now = datetime.datetime.now()
+print("The current time is ",now)
+
+
+import csv
+#open files
+file_to_load = 'Resources/election_results.csv'
+election_data = open(file_to_load,"r")
+
+#Do Stuff
+
+#close files
+election_data.close()
+
+#open files & do stuff
+with open(file_to_load) as election_data:
+    print(election_data)
 
 counties = ["Arapahoe","Denver","Jefferson"]
 if "El Paso" in counties:
@@ -44,3 +63,6 @@ message_to_candidate = (
     f"You received {candidate_votes:,} number of votes. "
     f"The total number of votes in the election was {total_votes:,}. "
     f"You received {candidate_votes / total_votes * 100:.2f}% of the total votes.")
+
+
+
