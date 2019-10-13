@@ -11,14 +11,30 @@ file_to_load = os.path.join("Resources","election_results.csv")
 #Create filename 
 file_to_save = os.path.join("Analysis", "election_analysis.txt")
 
+#Initializations
+total_votes = int()
+total_votes = 0
+
+
+#Candidate Options
+candidate_options = []
+
+
 #Open the results & Read the file
 with open(file_to_load) as election_data:
     file_reader = csv.reader(election_data)
-    headers = next(file_reader)
-    print(headers)
     
-    #for row in file_reader:
-    #    print(row)
+    #Read the header row
+    headers = next(file_reader)
+
+    for row in file_reader:
+        total_votes += 1
+        candidate_name = row[2]
+        if candidate_name not in candidate_options:
+            candidate_options.append(candidate_name)
+        
+        
+print(candidate_options)
 
 
 
